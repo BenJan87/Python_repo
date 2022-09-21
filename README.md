@@ -1,4 +1,4 @@
-# Python - basic projects
+# Python - projects
 ## Description:
 
 ```python
@@ -6,8 +6,8 @@ print("Hello World!")
 ```
 These are some of my basic projects written in python language, including:
 1. Advanced math operations (e.g. matrixes, complex numbers)
-2. Basic string operations
-3. Basic arrays operations
+2. Vary string methods
+3. Arrays operations and manipulations
 
 
 
