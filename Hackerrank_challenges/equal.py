@@ -1,6 +1,3 @@
-from operator import mod
-
-
 def op_check(best, num):
     dif = abs(best - num) % 5
     if dif == 0:
@@ -16,7 +13,6 @@ def op_between_num(a, greater):
         a += 5
     return count + op_check(greater, a)
 
-
 def equal(n, arr):
     i, count = 0, 0
     arr.sort()
@@ -26,10 +22,6 @@ def equal(n, arr):
         else:
             greater, less = max(arr[i], arr[i+1]), min(arr[i], arr[i+1]) 
             count += op_between_num(less, greater)
-
-
-
-
 
 if __name__ == "__main__": 
     t = int(input())
