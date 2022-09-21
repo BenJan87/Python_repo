@@ -1,4 +1,4 @@
-#creating the list form 1 to n (started on 1 index) and find if there is any arr where |arr[i]-i| = k
+#creating the list form 1 to n (started on 1 index) and find if there is any arr where |arr[i]-i| = k 
 
 def absolutePermutation(n, k):
     arr = set([i+1 for i in range(n)])
