@@ -1,29 +1,26 @@
 class Vector():
-    def __init__(self, a, b, c):
-        self.x_axis = a
-        self.y_axis = b
-        self.z_axis = c
+    def __init__(self, arr):
+        self.cords = arr
     
-    def sum_vec(u, v):
-        return Vector(u.x_axis+v.x_axis, u.y_axis+v.y_axis, u.z_axis+v.y_axis)
-    
-    def sub_vec(u, v):
-        return Vector(u.x_axis-v.x_axis, u.y_axis-v.y_axis, u.z_axis-v.y_axis)
+    def dot_product(a, b):
+        return sum([a.cords[i]*b.cords[i] for i in range(len(a.cords))])
 
-    def mult_by_num(n, u):
-        u.x_axis *= n
-        u.y_axis *= n
-        u.z_axis *= n
-        return u
+    def sum_vec(a, b):
+        return Vector([a.cords[i]+b.cords[i] for i in range(len(a.cords))])
 
-    def dot_product(u, v):
-        return u.x_axis*v.x_axis+u.y_axis*v.y_axis+u.z_axis*v.z_axis
+    def sub_vec(a, b_m):
+        return Vector([a.cords[i]-b_m.cords[i] for i in range(len(a.cords))])
+
+    def length(u):
+        return (sum([el**2 for el in u]))**(1/2)
+
+    def mult_by_num(u, n):
+        return Vector([u.cords[i]*n for i in range(len(u.cords))])
 
     
 if __name__ == "__main__":
-    u = Vector(7,7,2)
-    v = Vector(2,6,3)
-    w = Vector(1,0,0)
-    #
-    print(Vector.dot_product(Vector.mult_by_num(3, Vector.sub_vec(Vector.mult_by_num(2, v), w)), Vector.mult_by_num(2, u)))
+    u = Vector([7,7,2])
+    v = Vector([2,6,3])
+    w = Vector([1,0,0])
+    print(Vector.dot_product(Vector.mult_by_num( Vector.sub_vec(Vector.mult_by_num(v, 2), w), 3), Vector.mult_by_num(u, 2)))
     
