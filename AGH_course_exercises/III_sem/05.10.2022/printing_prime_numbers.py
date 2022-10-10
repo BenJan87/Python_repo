@@ -2,12 +2,12 @@ from math import sqrt
 from sys import argv
 
 def prime(n):
-    if n == 2 or n == 5:
+    if n == 2:
         return True
-    if n % 2 == 0 or n == 1:
+    if n % 2 == 0 or n == 1 or n < 0:
         return False
     i = 3
-    while i < sqrt(n):
+    while i <= sqrt(n):
         if n % i == 0:
             return False
         i += 2
