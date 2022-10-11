@@ -23,5 +23,6 @@ class Prime_Test(unittest.TestCase):
         for number in result_bin:
             self.assertEqual(prime(number), False)
 
+
 if __name__=="__main__":
     unittest.main()
