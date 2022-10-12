@@ -1,7 +1,6 @@
 import main
 import unittest
 
-
 class Test_TestSum(unittest.TestCase):
     def test_sum_integer_integer(self):
         self.assertEqual(main.sum(2, 2), 4)

@@ -1,5 +1,5 @@
 def sum(arg1, arg2):
-
+#if "j" occurs -> it means 1j (complex)
         def check_var(str_num):
                 if "j" in str_num:
                         return complex(str_num)
@@ -9,6 +9,7 @@ def sum(arg1, arg2):
 
         arg1, arg2 = check_var(str(arg1)), check_var(str(arg2))
         return arg1 + arg2
+
 
 if __name__ == "__main__":
     suma = sum(2, 6)
