@@ -10,7 +10,6 @@ def sum(arg1, arg2):
         arg1, arg2 = check_var(str(arg1)), check_var(str(arg2))
         return arg1 + arg2
 
-
 if __name__ == "__main__":
     suma = sum(2, 6)
     print(suma)
