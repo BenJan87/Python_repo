@@ -66,7 +66,7 @@ if __name__ == "__main__":
                 print("Incorrect insertion type, please do the operation once again:")
 
         except(EOFError):
-            print("Magazine status:")
+            print("\nMagazine status:")
             for el in magazine:
                 print(el)
             print("\nBuyers list:")
