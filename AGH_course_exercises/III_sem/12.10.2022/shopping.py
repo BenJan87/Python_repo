@@ -1,4 +1,3 @@
-
 magazine = [{'product': "Tomato", 'amount': 50},
             {'product': "Orange", 'amount': 100},
             {'product': "Apple", 'amount': 40},
