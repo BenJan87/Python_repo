@@ -11,13 +11,14 @@ def wypisz(dict1):
 
 def zapisz(dict1, argv):
     print('Wywołano funkcję "zapisz()" modułu "{0}"'.format(__name__))
-    for number in argv[1:]:
+    for number in argv:
         if number not in dict1:
             dict1[number] = 1
         else:
             dict1[number] += 1
 
     return dict1
+
 ############################################
 
 print('Załadowano moduł "{0}"'.format(__name__))
