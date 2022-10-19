@@ -1,0 +1,96 @@
+450  curl --help
+  451  curl -I https://curl.haxx.se/
+  452  curl -X GET https://httpbin.org/anything
+  453  curl -X POST https://httpbin.org/anything
+  454  curl -X https://httpbin.org/anything
+  455  curl -X POST https://httpbin.org/anything
+  456  curl -X GET https://httpbin.org/anything
+  457  curl -X POST https://httpbin.org/anything
+  458  curl -X DELETE https://httpbin.org/anything
+  459  https://httpbin.org/anything
+  460  curl -X DELETE https://httpbin.org/anything
+  461  curl -X POST {"value": "wieloryb"} https://httpbin.org/anything
+  462  ps
+  463  ps aux
+  464  ps aux | grep setting
+  465  ps aux | grep sett
+  466  curl -X GET https://httpbin.org/anything
+  467  curl -X GET value=panda https://httpbin.org/anything
+  468  curl www.google.com/robots.txt
+  469  curl https://www.google.com/sitemap.xmlx
+  470  curl -X GET https://httpbin.org/anything User-Agent: delfin
+  471  curl -X GET User-Agent: delfin
+  472  https://httpbin.org/anything
+  473  curl -X GET https://httpbin.org/anything
+  474  curl -X GET -A delfin https://httpbin.org/anything
+  475  curl -X GET https://facebook.com
+  476  curl -X DELETE https://httpbin.org/anything
+  477  curl -X GET https://httpbin.org/anything
+  478  curl -X POST -d {"value": "wieloryb"} https://httpbin.org/anything
+  479  curl -X POST -d '{"value": "wieloryb"}' https://httpbin.org/anything
+  480  curl -X POST -d 'value=panda' https://httpbin.org/anything
+  481  curl -X GET -d 'value=panda' https://httpbin.org/anything
+  482  curl -X POST -d 'value=panda' https://httpbin.org/anything
+  483  curl -X GET -d 'value=panda' https://httpbin.org/anything
+  484  curl -X GET -A delfin https://httpbin.org/anything
+  485  curl -X POST -H application/json https://httpbin.org/anything
+  486  curl -X GET -A delfin https://httpbin.org/anything
+  487  curl -X POST Content-type: application/json https://httpbin.org/anything
+  488  curl -X POST -H 'application/json' https://httpbin.org/anything
+  489  curl -X POST -d '{"value": "wieloryb"}' https://httpbin.org/anything
+  490  curl -X POST -H 'application/json' https://httpbin.org/anything
+  491* curl -X GET -H '' https://httpbin.org/anything
+  492  curl -X POST -H 'application/json' https://httpbin.org/anything
+  493  curl -X POST -H 'application/json' -d '{"value": "wieloryb"}' https://httpbin.org/anything
+  494  curl -X POST -d '{"value": "wieloryb"}' https://httpbin.org/anything
+  495  curl -X POST -H 'application/json' -d '{"value": "wieloryb"}' https://httpbin.org/anything
+  496  curl -X POST -H 'Accept-Encoding' https://httpbin.org/anything
+  497  curl -X POST -H 'Accept-Encoding: gzip' https://httpbin.org/anything
+  498  touch object.json < "{ "owoc": "Ananas", "rozmiar": "sredni", "kolor": "brazowy" }"
+  499  touch object.json < echo "{ "owoc": "Ananas", "rozmiar": "sredni", "kolor": "brazowy" }"
+  500  touch object.json
+  501  nano object.json 
+  502  cat object.json 
+  503  curl -X POST --data-binary @object.json https://httpbin.org/anything
+  504  curl -X POST -H 'Content-type: application-json' --data-binary @object.json https://httpbin.org/anything
+  505  curl https://httpbin.org/image
+  506  curl -H 'Accept: image/png' https://httpbin.org/image
+  507  curl -H 'Accept: image/png' https://httpbin.org/image > image_curl.png
+  508  catg
+  509  curl -X PUT https://httpbin.org/anything
+  510  curl https://httpbin.org/image/jpeg > image_curl.jpeg
+  511  curl http://www.twitter.com
+  512  curl -I http://www.twitter.com
+  513  curl -X GET http://www.twitter.com
+  514  curl -X GET -H http://www.twitter.com
+  515  curl -I http://www.twitter.com
+  516  curl -X GET -H 'delfin :wieloryb' http://www.twitter.com
+  517  curl https://httpbin.org/status/404 i https://httpbin.org/status/200
+  518  curl https://httpbin.org/status/404 
+  519  curl https://httpbin.org/status/200
+  520  curl -I https://httpbin.org/status/200
+  521  curl -I https://httpbin.org/status/404
+  522  curl -X GET https://httpbin.org/status/404
+  523  curl -X GET https://httpbin.org/status/200
+  524  curl -u Benek:jajo https://httpbin.org/anything
+  525  curl https://httpbin.org/anything
+  526  curl -H 'Accept-Language: es-Es 20' https://httpbin.org/anything
+  527  curl -H 'Accept-Language: es-Es 20' https://google.com
+  528  curl -H 'Accept-Language: es-Es 20' https://www.google.com
+  529  curl -X POST -d '{"value": "wieloryb"}' https://httpbin.org/anything
+  530  http://www.twitter.com
+  531  curl -H 'Accept-Language: es-Es' https://www.twitter.com
+  532  curl -X GET -H 'Accept-Language: es-Es' https://www.twitter.com
+  533  curl -X GET -H 'Accept-Language: es-Es' https://www.twitter.com && echo "ok"
+  534  curl -X GET -H 'Accept-Language: es-Es' https://www.twitter.com && xdg-open www.twitter.com
+  535  curl -X GET -H 'Accept-Language: es-Es' https://www.twitter.com && xdg-open 'www.twitter.com'
+  536  curl -X GET -H 'Accept-Language: es-Es' https://www.twitter.com && xdg-open 'https://www.twitter.com'
+  537  lynx -dump -stdin
+  538  curl -X GET -H 'Accept-Language: es-Es' https://www.twitter.com | lynx -dump -stdin
+  539  curl -X GET -H 'Accept-Language: es-Es' https://www.twitter.com > lol.html
+  540  curl -X GET -H 'Accept-Language: es-Es' https://twitter.com/ > lol.html
+  541  history
+  542  curl --trace dump https://twitter.com
+  543  curl --trac
+  544  curl --trace https://httpbin.org/anything
+  545  curl --trace dump https://httpbin.org/anything
