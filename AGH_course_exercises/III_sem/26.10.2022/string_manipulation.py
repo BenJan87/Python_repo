@@ -108,11 +108,11 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("-f", "--files", help="input file",
                         nargs='+', required=True)
-    parser.add_argument('-l', '--leading-spaces', help='skip the spaces except the leading spaces',
+    parser.add_argument('-l', '--leading-spaces', help='skip the leading spaces',
                         action='store_true')
-    parser.add_argument('-s', '--spaces', help='skipt all of the spaces',
+    parser.add_argument('-s', '--spaces', help='skip all of the spaces besides leading',
                         action='store_true')
-    parser.add_argument('-c', '--concat', help='converting the continutation of code into one line (ends with "\\")',
+    parser.add_argument('-c', '--concat', help='converting the continutation of code into one line (default ends with "\\")',
                         default="\\")
     
     try:
@@ -120,10 +120,16 @@ if __name__ == "__main__":
     except:
         print("Specify file names and check the flags (-h or --help for descriptions)")
 
-    files = args.files
-    basic_file = "tmp_file.txt"
     try:
-        for file in files:
+        files = args.files
+    except(NameError):
+        exit(0)
+
+    basic_file = "tmp_file.txt"
+
+    
+    for file in files:
+        try:
             if not concatenation(file, args.concat[0]):
                 print(f"No such file as {file}\n")
                 continue
@@ -144,8 +150,8 @@ if __name__ == "__main__":
                 continue
 
             os.rename("tmp_file.txt", file+"_changed")
-    except(FileExistsError):
-        print("File with name 'file_name'_changed already exist\nRemove this file than run the script")
+        except(FileExistsError):
+            print(f"File with name {file}_changed already exist\nRemove this file than run the script\n")
 
     for file in [basic_file, "tmp_file_leading.txt", "tmp_file_spaces.txt"]:
         try:
