@@ -3,7 +3,6 @@ import argparse, re, os
 
 def printing_file(file):
     file1 = open(file, "r")
-    print(f"\nopening: {file}\n")
     for el in file1.readlines():
         print(el, end="")
     print("\n"+"-"*40)
@@ -83,7 +82,6 @@ def leading_spaces(file):
     tmp_file = open('tmp_file_leading.txt', 'w+')
     given_file = open(file, 'r')
     lines = given_file.readlines()
-    last = lines[-1]
 
     for line in lines:
         reg_object = re.search(r'^\s+', line)
@@ -92,10 +90,7 @@ def leading_spaces(file):
         else:
             new_line = line
         
-        if line is not last:
-            tmp_file.write(new_line)
-        else:
-            tmp_file.write(new_line) 
+        tmp_file.write(new_line) 
             
     print("After removing leading spaces:\n")
     tmp_file.close()

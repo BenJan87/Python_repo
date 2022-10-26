@@ -23,9 +23,13 @@ def recognize_string(word):
 
         
 if __name__ == "__main__":
-    words = input().split()
-    for word in words:
-        print("\n", word)
-        result = recognize_string(word)
-        for el in result:
-            print(el)
+    while True:
+        try:
+            words = input().split()
+            for word in words:
+                print("\n", word)
+                result = recognize_string(word)
+                for el in result:
+                    print(el)
+        except(EOFError):
+            exit()
