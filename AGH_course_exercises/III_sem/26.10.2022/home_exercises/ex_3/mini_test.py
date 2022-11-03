@@ -30,5 +30,6 @@ class Test_TestDay(unittest.TestCase):
         self.assertTrue(self.term_5.equals(self.term_6))
 
     
+    
 if __name__ == '__main__':
     unittest.main()
