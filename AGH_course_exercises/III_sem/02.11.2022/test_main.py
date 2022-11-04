@@ -1,3 +1,1 @@
-b, m = []
-print(b)
-print(m)
+print(3 == 3.0)

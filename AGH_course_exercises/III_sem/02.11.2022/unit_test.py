@@ -16,7 +16,48 @@ class Test_TestDay(unittest.TestCase):
         self.assertFalse(Rental.parse_file_line(r'02.11.2022\incorrect_magazine.txt',[]))
         self.assertFalse(Rental.parse_file_line(r'02.11.2022\incorrect_amounts.txt', []))
 
+    def test_renting(self):
+        magazine_2 = [{'model': "B'twin", 'amount': 0, 'cost_per_min': 1.0},
+                      {'model': "Merida", 'amount': 50, 'cost_per_min': 2.0}]
+        res_magazine = [{'model': "B'twin", 'amount': 0, 'cost_per_min': 1.0},
+                      {'model': "Merida", 'amount': 49, 'cost_per_min': 2.0}]
+            
+        biker = {'person': "Ben", 'model': "Merida", 'time_hour': 17, 'time_minute': 0, 'mode': 1}
+        biker_2 = {'person': "Adam", 'model': "Shimano", 'time_hour': 17, 'time_minute': 0, 'mode': 1}
+        biker_3 = {'person': "Ben",'model': "B'twin", 'time_hour': 17, 'time_minute': 0, 'mode': 1}
 
+        buyer_list = []
+        res_buyer_list = [{'who': biker['person'],
+                           'model': biker['model'],
+                           'time_st_h': 17,
+                           'time_st_m': 0,
+                           'time_end_h': "Not returned",
+                           'time_end_m': "Not returned",
+                           'cost': 0}]
+
+        self.assertEqual(Rental.renting(magazine_2, biker, buyer_list),[res_magazine, res_buyer_list])
+        self.assertFalse(Rental.renting(magazine_2, biker_2, buyer_list))
+        self.assertFalse(Rental.renting(magazine_2, biker_3, buyer_list))
+
+    def test_returning(self):
+        magazine_3 = [{'model': "B'twin", 'amount': 0, 'cost_per_min': 1.0},
+                      {'model': "Merida", 'amount': 50, 'cost_per_min': 2.0}]
+        res_magazine = [{'model': "B'twin", 'amount': 1, 'cost_per_min': 1.0},
+                      {'model': "Merida", 'amount': 50, 'cost_per_min': 2.0}]
+
+        biker = {'person': "Ben", 'model': "B'twin", 'time_hour': 18, 'time_minute': 0, 'mode': 2}
+        biker_not_correct_time = {'person': "Ben", 'model': "B'twin", 'time_hour': 16, 'time_minute': 0, 'mode': 2}
+        buyer_list = [{'who': biker['person'], 'model': biker['model'], 'time_st_h': 17, 'time_st_m': 0, 'time_end_h': "Not returned", 'time_end_m': "Not returned", 'cost': 0}]
+        res_buyer_list = [{'who': biker['person'], 'model': biker['model'], 'time_st_h': 17, 'time_st_m': 0, 'time_end_h': 18, 'time_end_m': 0, 'cost': 60}]
+        fake_buyer_list = []
+        
+        self.assertEqual(Rental.returning(magazine_3, biker, buyer_list),[res_magazine, res_buyer_list])
+        self.assertFalse(Rental.returning(magazine_3, biker_not_correct_time, buyer_list), [res_magazine, res_buyer_list])
+        self.assertFalse(Rental.returning(magazine_3, biker, fake_buyer_list), [res_magazine, res_buyer_list])
+
+    def test_input(self):
+        biker = {'person': "Ben", 'model': "B'twin", 'time_hour': 18, 'time_minute': 0, 'mode': 2}
+        self.assertEqual(Rental.parse_input_line(), biker)
 
 
 if __name__ == '__main__':

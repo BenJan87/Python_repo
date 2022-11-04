@@ -139,6 +139,7 @@ if __name__ == "__main__":
     magazine, tmp_magazine, buyers_list = [], [], []
     try:
         file = input("Give magazine file: ")
+        file = rf'{file}'
     except(EOFError):
         print("Exiting...")
         exit(1)
