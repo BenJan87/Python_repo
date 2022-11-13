@@ -1,3 +1,4 @@
+# from day import Day
 class Term():
 
     def __init__(self, day_of_week, hour, minute, duration = 90):

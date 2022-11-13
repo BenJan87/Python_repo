@@ -24,7 +24,4 @@ def nth_day_from(n, day):
         return Day.SUN
     return Day(res)
 
-print(nth_day_from(1, Day.FRI))
-print(Day.FRI.value)
-
-
+print("Imported day!")

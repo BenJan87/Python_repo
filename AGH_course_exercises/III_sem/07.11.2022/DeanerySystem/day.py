@@ -23,9 +23,3 @@ def nth_day_from(n, day):
     if res == 0:
         return Day.SUN
     return Day(res)
-
-print(nth_day_from(1, Day.FRI))
-print(Day.FRI.value)
-
-
-

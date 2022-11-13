@@ -55,19 +55,19 @@ class Test_TestDay(unittest.TestCase):
         self.assertFalse(Rental.returning(magazine_3, biker_not_correct_time, buyer_list), [res_magazine, res_buyer_list])
         self.assertFalse(Rental.returning(magazine_3, biker, fake_buyer_list), [res_magazine, res_buyer_list])
 
-    def test_input(self):
-        biker = {'person': "Ben", 'model': "B'twin", 'time_hour': 18, 'time_minute': 0, 'mode': 2}
-        print("\nCorrect input:  name_model_hourTime:minuteTime - also give 2 as a mode\n")
-        self.assertEqual(Rental.parse_input_line(), biker)
+    # def test_input(self):
+    #     biker = {'person': "Ben", 'model': "B'twin", 'time_hour': 18, 'time_minute': 0, 'mode': 2}
+    #     print("\nCorrect input:  name_model_hourTime:minuteTime - also give 2 as a mode\n")
+    #     self.assertEqual(Rental.parse_input_line(), biker)
 
-        print("\nTry put not enough data - e.g. only name and model")
-        self.assertFalse(Rental.parse_input_line())
+    #     print("\nTry put not enough data - e.g. only name and model")
+    #     self.assertFalse(Rental.parse_input_line())
         
-        print("\nTry put not correct action")
-        self.assertFalse(Rental.parse_input_line())
+    #     print("\nTry put not correct action")
+    #     self.assertFalse(Rental.parse_input_line())
 
-        print("\nTry put inccorect time - e.g. 25 in hours")
-        self.assertFalse(Rental.parse_input_line())
+    #     print("\nTry put inccorect time - e.g. 25 in hours")
+    #     self.assertFalse(Rental.parse_input_line())
         
 
 if __name__ == '__main__':
