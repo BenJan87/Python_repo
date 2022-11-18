@@ -1,6 +1,5 @@
-from DeanerySystem.day import Day
-from DeanerySystem.term_class import Term
-
+from day import Day
+from term_class import Term
 class Lesson():
     def __init__(self):
         self.__term = None
