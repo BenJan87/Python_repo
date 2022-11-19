@@ -2,7 +2,8 @@ class Operacje:
     argumentySuma=[4,5]
     argumentyRoznica=[4,5,6]
 
-    def argumenty()
+    def argumenty(*args, **kwargs):
+        pass
 
 
     @argumenty(argumentySuma)

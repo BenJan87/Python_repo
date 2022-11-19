@@ -1,43 +1,17 @@
 class Own_date():
-    def __init__(self):
-        self._hour = 0
-        self._minute = 0
-
-
-    @property
-    def hour(self):
-        return self._hour
-
-
-    @hour.setter
-    def hour(self, given_hour):
-        if given_hour < 0 or given_hour > 23:
-            raise ValueError('Hour is incorrect')
-        self._hour = given_hour
-        
-
-
-    @property
-    def minute(self):
-        return self._minute
-    
-
-    @minute.setter
-    def minute(self, given_minute):
-        if given_minute < 0 or given_minute > 59:
-            raise ValueError('Minute is incorrect')
-        self._minute = given_minute
-
+    def __init__(self, hour, minute):
+        self.hour = hour
+        self.minute = minute
 
     def __sub__(self, end_date):
-        minutes_self = self._hour * 60 + self._minute
-        minutes_end_date = end_date._hour * 60 + end_date._minute
+        minutes_self = self.hour * 60 + self.minute
+        minutes_end_date = end_date.hour * 60 + end_date.minute
 
-        all_minutes = minutes_self - minutes_end_date
-        if all_minutes < 0:
-            all_minutes += 24*60
+        allminutes = minutes_self - minutes_end_date
+        if allminutes < 0:
+            allminutes += 24*60
 
-        return all_minutes
+        return allminutes
 
 
 # ft = Own_date()
