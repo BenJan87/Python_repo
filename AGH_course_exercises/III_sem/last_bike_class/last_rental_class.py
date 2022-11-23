@@ -7,7 +7,7 @@ class Rental():
     r_vehicles = []
     transactions = []
     r_clients = []
-
+    
     @staticmethod
     def add_to_magazine(model, cost, veh_type) -> None:
         if veh_type == "Bike":
@@ -18,7 +18,7 @@ class Rental():
         vehicle.type = veh_type 
         vehicle.cost = cost
         Rental.r_vehicles.append(vehicle)
-    
+                                        
     @staticmethod
     def rent_a_bike(id_client, model, date_rent, veh_type) -> bool:
         arr = Rental.r_vehicles
