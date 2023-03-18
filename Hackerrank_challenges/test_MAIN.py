@@ -1,3 +1,4 @@
-test_tuple = (2, 3)
-test_tuple += (4, )
-print(test_tuple)
+ranked = [100, 90, 90, 80, 80, 40]
+ranked = sorted(list(set(ranked)), key=lambda x: -x)
+    
+print(ranked)
