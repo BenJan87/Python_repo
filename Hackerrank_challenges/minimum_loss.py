@@ -1,4 +1,4 @@
-def minimumLoss(arr_price) -> int:
+def minimumLoss1(arr_price) -> int:
     min_loss = 10 ** 16 + 1
     n = len(arr_price)
 
@@ -10,6 +10,9 @@ def minimumLoss(arr_price) -> int:
             min_loss = min(difference, min_loss)
  
     return min_loss 
+
+def minimumLoss(arr_price) -> int:
+    
 
 
 if __name__ == '__main__':
