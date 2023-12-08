@@ -27,4 +27,4 @@ def check_adjacent(start_pos, end_pos, matrix):
 #     end_index = match.end() - 1  # Adjust end_index to get the correct position
 
 if __name__ == "__main__":
-    matrix = open_file_and_fill_inside_matrix(r"C:\Users\Benek\Desktop\Studia_AGH\git_repos\Python_repo\Advent_code_2023\day_3\day_3_input.txt")
+    matrix = open_file_and_fill_inside_matrix(r)
