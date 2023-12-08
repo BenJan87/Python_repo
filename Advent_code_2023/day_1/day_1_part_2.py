@@ -1,58 +1,81 @@
-from day_1_part_1 import finding_digits
 import re
-
 
 def find_all(word: str) -> int:
     number_dict = {
-    "zero": '0',
-    "one": '1',
-    "two": '2',
-    "three": '3',
-    "four": '4',
-    "five": '5',
-    "six": '6',
-    "seven": '7',
-    "eight": '8',
-    "nine": '9'
+    "zero": "0",
+    "one": "1",
+    "two": "2",
+    "three": "3",
+    "four": "4",
+    "five": "5",
+    "six": "6",
+    "seven": "7",
+    "eight": "8",
+    "nine": "9"
     }
 
-    starting_list = []
-    for number_as_word in list(number_dict.keys()):
-        starting_list.append((number_dict[number_as_word], re.search(number_as_word, word)))
-    
-    
-    without_none_sorted_list = [(el[0], el[1].span()[0]) for el in starting_list if el[1] is not None]
-    sorted_starting_list = sorted(without_none_sorted_list, key=lambda x: x[1])
+    fst_char_from_word, last_char_from_word = None, None
+    fst_char_from_digit, last_char_from_digit = None, None
 
-    # [(liczba, miejsce wystąpienia)]
-    
-    fst_digit = sorted_starting_list[0][0] if sorted_starting_list else 0
-    last_digit = sorted_starting_list[-1][0] if sorted_starting_list else 0 
+    fst_char_from_word_index, last_char_from_word_index = len(word), -1
+    fst_char_from_digit_index, last_char_from_digit_index = len(word), -1
+
+    flag_1 = 0
+    flag_2 = 0
 
     for i in range(len(word)):
-        if word[i].isdigit() and sorted_starting_list:
-            if sorted_starting_list[0][1] > i:
-                fst_digit = word[i]
+        five_char_word = word[i:i + 5]
+        for number_as_word in number_dict:
+            match = re.search(number_as_word, five_char_word)
+            if match:
+                fst_char_from_word = number_dict[number_as_word]
+                fst_char_from_word_index = match.start() + i
+                flag_1 = 1
                 break
+        if flag_1:
+            break
 
-    for i in range(len(word) - 1, -1, -1):
-        if word[i].isdigit() and sorted_starting_list:
-            if sorted_starting_list[-1][1] < i:
-                last_digit = word[i]
+    for i in range(len(word)):
+        five_char_word = word[len(word) - i - 5:len(word) - i]
+        for number_as_word in number_dict:
+            match = re.search(number_as_word, five_char_word)
+            if match:
+                last_char_from_word = number_dict[number_as_word]
+                last_char_from_word_index = len(word) - i - 5 + match.start()
+                flag_2 = 1
                 break
-            
-    return int(fst_digit + last_digit)
-    
+        if flag_2:
+            break
 
+    for i, char in enumerate(word):
+        if char.isdigit():
+            fst_char_from_digit = char
+            fst_char_from_digit_index = i
+            break
+
+    for i, char in enumerate(word[::-1]):
+        if char.isdigit():
+            last_char_from_digit = char
+            last_char_from_digit_index = len(word) - i - 1
+            break
+
+
+    if fst_char_from_digit_index < fst_char_from_word_index:
+        fst = fst_char_from_digit
+    else:
+        fst = fst_char_from_word
+
+    if last_char_from_digit_index > last_char_from_word_index:
+        last = last_char_from_digit
+    else:
+        last = last_char_from_word
+
+    return int(fst + last)
 
 
 if __name__ == "__main__":
-    # digits = []
-    
-    # with open(r'C:\Users\Benek\Desktop\Studia_AGH\git_repos\Python_repo\Advent_code_2023\day_1\day_1_input.txt', 'r') as file:
-    #     for line in file.readlines():
-    #         digits.append(find_all(line))
-
-    # print(sum(digits))   
-
-    print(find_all('1tcrgthmeight5mssseight'))
+    digits = []
+    with open('day_1_input.txt', 'r') as file:
+        for line in file.readlines():
+            digits.append(find_all(line))
+    print(sum(digits))
