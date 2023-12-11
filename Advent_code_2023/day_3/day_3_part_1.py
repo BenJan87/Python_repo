@@ -6,25 +6,54 @@ def open_file_and_fill_inside_matrix(file_path):
     return matrix
 
 
-def check_adjacent(start_pos, end_pos, matrix):
+def check_adjacent(start_pos, end_pos, line, matrix):
+    one = [-1, -1]
+    two = [0, -1]
+    three = [1, -1]
+    four = [-1, 0]
+    five = [1, 0]
+    six = [-1, 1]
+    seven = [0, 1]
+    eight = [1, 1]
+
+    for positions in [one, two, three]:
+        new_pos = [line + positions[0], start_pos + positions[1]]
+        if new_pos[0] < 0 or new_pos[1] < 0 or new_pos[0] >= len(matrix) or new_pos[1] >= len(matrix[0]):
+            continue
+        if matrix[new_pos[0]][new_pos[1]] == '.':
+            continue
+        return True
+
+    for positions in [six, seven, eight]:
+        new_pos = [line + positions[0], end_pos + positions[1]]
+        if new_pos[0] < 0 or new_pos[1] < 0 or new_pos[0] >= len(matrix) or new_pos[1] >= len(matrix[0]):
+            continue
+        if matrix[new_pos[0]][new_pos[1]] == '.':
+            continue
+        return True
+
     for i in range(start_pos, end_pos + 1):
-        one = 
-        two = 
-        three =
-        four = 
-        five = 
-        six = 
-        seven = 
-        eight =
-# input_line = "....0234...123"
-# pattern = r'\d+'
+        for positions in [four, five]:
+            new_pos = [line + positions[0], i + positions[1]]
+            if new_pos[0] < 0 or new_pos[1] < 0 or new_pos[0] >= len(matrix) or new_pos[1] >= len(matrix[0]):
+                continue
+            if matrix[new_pos[0]][new_pos[1]] == '.':
+                continue
+            return True
+        
+    return False
 
-# matches = re.finditer(pattern, input_line)
-
-# for match in matches:
-#     matched_string = match.group()
-#     start_index = match.start()
-#     end_index = match.end() - 1  # Adjust end_index to get the correct position
 
 if __name__ == "__main__":
-    matrix = open_file_and_fill_inside_matrix(r)
+    test_file = r'day_3_input.txt'
+    sum = 0
+    matrix = open_file_and_fill_inside_matrix(test_file)
+    for index_of_line, line in enumerate(matrix):
+        matches = re.finditer(r'\d+', line)
+        for match in matches:
+            matched_string = match.group()
+            start_index = match.start()
+            end_index = match.end() - 1  
+            if check_adjacent(start_index, end_index, index_of_line, matrix):
+                sum += int(matrix[index_of_line][start_index:end_index + 1])
+    print(sum)
